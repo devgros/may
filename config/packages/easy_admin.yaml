@@ -1,0 +1,21 @@
+imports:
+    - { resource: easy_admin/client.yaml }
+
+easy_admin:
+    site_name: "May Appli"
+
+    design:
+        brand_color: '#dd4b39'
+        color_scheme: 'dark'
+        form_theme: 'easy_admin/custom_layout.html.twig'
+        assets:
+            css:
+                - '/public/css/global.css'
+            js:
+        menu:
+            - { entity: 'Client', label: 'Clients', icon: 'address-book' } 
+    list:
+        actions:
+            - { name: 'show', icon: 'search', label: false }
+            - { name: 'edit', icon: 'pencil', label: false }
+            - { name: 'delete', icon: 'times', label: false }

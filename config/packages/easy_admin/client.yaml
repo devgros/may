@@ -1,0 +1,4 @@
+easy_admin:
+    entities:
+        Client:
+            class: App\Entity\Client
