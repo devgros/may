@@ -3,6 +3,7 @@ framework:
         engines: twig
     secret: '%env(APP_SECRET)%'
     default_locale: fr
+    translator: { fallbacks: [ "fr" ] }
     csrf_protection: ~
     #http_method_override: true
 

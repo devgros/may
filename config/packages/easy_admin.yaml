@@ -1,11 +1,16 @@
 imports:
     - { resource: easy_admin/client.yaml }
+    - { resource: easy_admin/item.yaml }
+    - { resource: easy_admin/zone.yaml }
+    - { resource: easy_admin/rayon.yaml }
+    - { resource: easy_admin/magasin.yaml }
+    - { resource: easy_admin/audit.yaml }
 
 easy_admin:
-    site_name: "May Appli"
+    site_name: "MGQH"
 
     design:
-        brand_color: '#dd4b39'
+        brand_color: '#3c8dbc'
         color_scheme: 'dark'
         form_theme: 'easy_admin/custom_layout.html.twig'
         assets:
@@ -13,7 +18,17 @@ easy_admin:
                 - '/public/css/global.css'
             js:
         menu:
-            - { entity: 'Client', label: 'Clients', icon: 'address-book' } 
+            - { label: menu.audit }
+            - { entity: 'Audit', label: 'menu.audits', icon: 'clipboard' } 
+            - { label: menu.client }
+            - { entity: 'Magasin', label: 'menu.magasins', icon: 'shopping-cart' } 
+            - { entity: 'Client', label: 'menu.clients', icon: 'user' } 
+            - { label: menu.gestion }
+            - { entity: 'Rayon', label: 'menu.rayons', icon: 'list' }
+            - { entity: 'Zone', label: 'menu.zones', icon: 'tags' } 
+            - { entity: 'Item', label: 'menu.items', icon: 'check' } 
+            
+             
     list:
         actions:
             - { name: 'show', icon: 'search', label: false }

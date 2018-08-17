@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,21 @@ class Client
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Magasin", mappedBy="client")
+     */
+    private $magasins;
+
+    public function __construct()
+    {
+        $this->magasins = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
 
     public function getId()
     {
@@ -68,6 +85,37 @@ class Client
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Magasin[]
+     */
+    public function getMagasins(): Collection
+    {
+        return $this->magasins;
+    }
+
+    public function addMagasin(Magasin $magasin): self
+    {
+        if (!$this->magasins->contains($magasin)) {
+            $this->magasins[] = $magasin;
+            $magasin->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMagasin(Magasin $magasin): self
+    {
+        if ($this->magasins->contains($magasin)) {
+            $this->magasins->removeElement($magasin);
+            // set the owning side to null (unless already changed)
+            if ($magasin->getClient() === $this) {
+                $magasin->setClient(null);
+            }
+        }
 
         return $this;
     }

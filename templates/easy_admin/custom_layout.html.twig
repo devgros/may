@@ -1,5 +1,48 @@
 {% extends '@EasyAdmin/form/bootstrap_3_layout.html.twig' %}
 
+{% block form_row -%}
+    {% if form.vars.group_field is defined and form.vars.group_field %}
+        <div class="col-xs-12 col-sm-12">
+            <div class="box box-warning box-solid">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+    {% endif %}
+    {% if form.parent.vars.child_half_size is defined and form.parent.vars.child_half_size %}
+        <div class="col-xs-12 col-sm-6">
+    {% endif %}
+    {% set _field_type = easyadmin.field.fieldType|default('default') %}
+    <div class="form-group {% if (not compound or force_error|default(false)) and not valid %}has-error{% endif %} field-{{ block_prefixes|slice(-2)|first }}">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+
+        {% if _field_type in ['datetime', 'datetime_immutable', 'date', 'date_immutable', 'time', 'time_immutable', 'birthday'] and easyadmin.field.nullable|default(false) %}
+            <div class="nullable-control">
+                <label>
+                    <input type="checkbox" {% if data is null %}checked="checked"{% endif %}>
+                    {{ 'label.nullable_field'|trans({}, 'EasyAdminBundle')}}
+                </label>
+            </div>
+        {% endif %}
+
+        {{- form_errors(form) -}}
+
+        {% if easyadmin.field.help|default('') != '' %}
+            <span class="help-block"><i class="fa fa-info-circle"></i> {{ easyadmin.field.help|trans(domain = easyadmin.entity.translation_domain)|raw }}</span>
+        {% endif %}
+    </div>
+    {% if form.parent.vars.child_half_size is defined and form.parent.vars.child_half_size %}
+        </div>
+    {% endif %}
+    {% if form.vars.group_field is defined and form.vars.group_field %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{%- endblock form_row %}
+
 {% block easyadmin_widget_groups %}
     {% for group_name, group_config in easyadmin_form_groups if not group_config.form_tab or group_config.form_tab == tab_name %}
         <div class="col-xs-12 {{ group_config.css_class|default('') }}">

@@ -1,0 +1,26 @@
+parameters:
+   statut_audit_colors: {'0':'warning', '1':'success'}
+
+easy_admin:
+    entities:
+        Audit:
+            class: App\Entity\Audit
+            controller: App\Controller\AuditController
+            list:
+                title: audit.list
+                fields: 
+                    - { property: 'date', label: 'audit.date', format: 'd/m/Y'}
+                    - { property: 'magasin', label: 'audit.magasin'}
+                    - { property: 'statut', label: 'audit.statut', template: 'choice_list.html.twig', colors: '%statut_audit_colors%'}
+                    
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'date', label: 'audit.date', type_options: { widget: 'single_text' }, css_class: 'col-sm-6'}
+                    - { property: 'magasin', label: 'audit.magasin', css_class: 'col-sm-6'}
+            show:
+                title: audit.show
+                fields: 
+                    - { property: 'date', label: 'audit.date', format: 'd/m/Y'}
+                    - { property: 'statut', label: 'audit.statut', template: 'choice_list.html.twig', colors: '%statut_audit_colors%'}
+                    - { property: 'magasin', label: 'audit.magasin'}

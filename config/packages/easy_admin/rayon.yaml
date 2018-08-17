@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Rayon:
+            class: App\Entity\Rayon
+            list:
+                title: rayon.list
+                fields: 
+                    - { property: 'nom', label: 'rayon.nom'}
+                    - { property: 'couleur', label: 'rayon.couleur', template: 'color_label.html.twig'}
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'nom', label: 'rayon.nom', css_class: 'col-sm-6'}
+                    - { property: 'couleur', label: 'rayon.couleur', css_class: 'col-sm-3'}
+            show:
+                fields: 
+                    - { property: 'nom', label: 'rayon.nom'}
+                    - { property: 'couleur', label: 'rayon.couleur', template: 'color_label.html.twig'}

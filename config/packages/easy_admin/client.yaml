@@ -2,3 +2,21 @@ easy_admin:
     entities:
         Client:
             class: App\Entity\Client
+            list:
+                title: client.list
+                fields: 
+                    - { property: 'nom', label: 'client.nom'}
+                    - { property: 'prenom', label: 'client.prenom'}
+                    - { property: 'email', label: 'client.email'}
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'nom', label: 'client.nom', css_class: 'col-sm-4'}
+                    - { property: 'prenom', label: 'client.prenom', css_class: 'col-sm-4'}
+                    - { property: 'email', label: 'client.email', css_class: 'col-sm-4'}
+            show:
+                fields: 
+                    - { property: 'nom', label: 'client.nom'}
+                    - { property: 'prenom', label: 'client.prenom'}
+                    - { property: 'email', label: 'client.email'}
+                    - { property: 'magasins', label: 'client.magasins'}

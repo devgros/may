@@ -1,0 +1,17 @@
+easy_admin:
+    entities:
+        Zone:
+            class: App\Entity\Zone
+            list:
+                title: zone.list
+                fields: 
+                    - { property: 'nom', label: 'zone.nom'}
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'nom', label: 'zone.nom', css_class: 'col-sm-6'}
+                    - { property: 'items', label: 'zone.items', css_class: 'col-sm-6'}
+            show:
+                fields: 
+                    - { property: 'nom', label: 'zone.nom'}
+                    - { property: 'items', label: 'zone.items'}

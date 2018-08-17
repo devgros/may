@@ -1,0 +1,54 @@
+Client: Client
+Item: Item
+Zone: Zone
+Rayon: Rayon
+Magasin: Magasin
+Audit: Audit
+
+menu.audit: Audit
+menu.audits: Audits
+menu.client: Client
+menu.magasins: Magasins
+menu.clients: Clients
+menu.gestion: Gestion
+menu.zones: Zones
+menu.items: Items
+menu.rayons: Rayons
+
+client.list: Clients
+client.nom: Nom
+client.prenom: Prénom
+client.email: Email
+client.magasins: Magasins
+
+item.list: Items
+item.nom: Nom
+item.text non conformite: Texte de non conformité 
+item.categorie: Categorie
+item.categorie0: Documentaire
+item.categorie1: Propreté hygiène
+item.categorie2: Procédure Qualité
+
+zone.list: Zones
+zone.nom: Nom
+zone.items: Items
+
+rayon.list: Rayons
+rayon.nom : Nom
+rayon.couleur : Couleur
+rayon.zones : Zones
+
+magasin.list: Magasins
+magasin.nom : Nom
+magasin.client: Client
+magasin.rayons: Rayons
+magasin.rayon: Rayon
+magasin.zones: Zones
+
+audit.list: Audits
+audit.date : Date
+audit.statut : Statut
+audit.statut0 : En cours
+audit.statut1 : Terminé
+audit.magasin : Magasin
+audit.show: Audit du 

@@ -1,0 +1,7 @@
+.field-rayon_magasin { margin-bottom:0 !important; }
+.btn-box-tool, .btn-box-tool:hover, .btn-box-tool:focus, .btn-box-tool:active, .btn-box-tool:active:hover { background:none; }
+.btn_audit > .btn:active { top: 0px; }
+.btn_audit > .btn, .btn_audit > .btn:hover, .btn_audit > .btn:active, .btn_audit > .btn:focus, .btn_audit > .btn:active:hover { padding: 5px 10px; }
+.btn_audit > .btn:hover:first-child, .btn_audit > .btn:active:first-child, .btn_audit > .btn:focus:first-child, .btn_audit > .btn:active:hover:first-child, .btn_audit > .btn:first-child.actif { background:#006B2E; color:#fff;}
+.btn_audit > .btn:hover, .btn_audit > .btn:active, .btn_audit > .btn:focus, .btn_audit > .btn:active:hover, .btn_audit > .btn.actif { background:#D42124; color:#fff; line-height: 1.5; }
+.btn_audit > .btn:hover:last-child, .btn_audit > .btn:active:last-child, .btn_audit > .btn:focus:last-child, .btn_audit > .btn:active:hover:last-child, .btn_audit > .btn:last-child.actif { background:#aaa; color:#000; }

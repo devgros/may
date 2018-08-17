@@ -1,0 +1,21 @@
+easy_admin:
+    entities:
+        Magasin:
+            class: App\Entity\Magasin
+            list:
+                title: magasin.list
+                fields: 
+                    - { property: 'nom', label: 'magasin.nom'}
+                    - { property: 'client', label: 'magasin.client'}
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'nom', label: 'magasin.nom', css_class: 'col-sm-6'}
+                    - { property: 'client', label: 'magasin.client', css_class: 'col-sm-6'}
+                    - { property: 'rayonsMagasins', label: 'magasin.rayons', type: 'collection', type_options: { entry_type: 'App\Form\RayonMagasinType', mapped: true, allow_add: true, required: false, allow_delete: true, by_reference: false, entry_options: {label: false} }, css_class: 'col-sm-12'}
+                    #- { property: 'rayonsMagasins', label: 'magasin.rayons', type: 'collection', type_options: { allow_add: true, required: false, allow_delete: true, by_reference: false }, css_class: 'col-sm-12'}
+            show:
+                fields: 
+                    - { property: 'nom', label: 'magasin.nom'}
+                    - { property: 'client', label: 'magasin.client'}
+                    - { property: 'rayonsMagasins', label: 'magasin.rayons'}

@@ -1,0 +1,11 @@
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+{% block body_javascript %}
+	{{ parent() }}
+
+    <script type="text/javascript">
+        $(function() {
+			$('[name="rayon[couleur]"]').prop("type", "color");
+        });
+    </script>
+{% endblock body_javascript %}

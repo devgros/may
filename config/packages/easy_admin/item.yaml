@@ -1,0 +1,26 @@
+parameters:
+   categorie_item: {'item.categorie0':'0', 'item.categorie1':'1', 'item.categorie2':'2'}
+   categorie_item_colors: {'0':'default', '1':'primary', '2':'success'}
+
+easy_admin:
+    entities:
+        Item:
+            class: App\Entity\Item
+            list:
+                title: item.list
+                fields: 
+                    - { property: 'nom', label: 'item.nom'}
+                    - { property: 'text_non_conformite', label: 'item.text non conformite'}
+                    - { property: 'categorie', label: 'item.categorie', template: 'choice_list.html.twig', colors: '%categorie_item_colors%'}
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: '', background: 'box-purple' }
+                    - { property: 'nom', label: 'item.nom', css_class: 'col-sm-6'}
+                    - { property: 'categorie', label: 'item.categorie', type: 'choice', type_options: {choices: '%categorie_item%', expanded: false, multiple: false }, css_class: 'col-sm-6'}
+                    - { property: 'text_non_conformite', label: 'item.text non conformite', css_class: 'col-sm-12'}
+                    
+            show:
+                fields: 
+                    - { property: 'nom', label: 'item.nom'}
+                    - { property: 'text_non_conformite', label: 'item.text non conformite'}
+                    - { property: 'categorie', label: 'item.categorie', template: 'choice_list.html.twig', colors: '%categorie_item_colors%'}
