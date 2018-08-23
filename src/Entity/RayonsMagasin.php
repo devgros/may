@@ -36,6 +36,11 @@ class RayonsMagasin
      */
     private $zones;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AuditItem", mappedBy="rayonsMagasin", orphanRemoval=true)
+     */
+    private $auditItems;
+
     public function __toString()
     {
         $zones = "";
@@ -54,6 +59,7 @@ class RayonsMagasin
     public function __construct()
     {
         $this->zones = new ArrayCollection();
+        $this->auditItems = new ArrayCollection();
     }
 
     public function getId()
@@ -106,6 +112,37 @@ class RayonsMagasin
     {
         if ($this->zones->contains($zone)) {
             $this->zones->removeElement($zone);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AuditItem[]
+     */
+    public function getAuditItems(): Collection
+    {
+        return $this->auditItems;
+    }
+
+    public function addAuditItem(AuditItem $auditItem): self
+    {
+        if (!$this->auditItems->contains($auditItem)) {
+            $this->auditItems[] = $auditItem;
+            $auditItem->setRayonsMagasin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAuditItem(AuditItem $auditItem): self
+    {
+        if ($this->auditItems->contains($auditItem)) {
+            $this->auditItems->removeElement($auditItem);
+            // set the owning side to null (unless already changed)
+            if ($auditItem->getRayonsMagasin() === $this) {
+                $auditItem->setRayonsMagasin(null);
+            }
         }
 
         return $this;

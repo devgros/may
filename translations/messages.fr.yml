@@ -52,3 +52,7 @@ audit.statut0 : En cours
 audit.statut1 : Terminé
 audit.magasin : Magasin
 audit.show: Audit du 
+
+audit.item.modal.title: Détail de la Non Conformité
+audit.item.modal.bt_confirm: Sauvegarder
+audit.item.modal.bt_close: Fermer

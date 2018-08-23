@@ -38,6 +38,11 @@ class Item
      */
     private $zones;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AuditItem", mappedBy="item", orphanRemoval=true)
+     */
+    private $audits;
+
     public function __toString()
     {
         return $this->nom;
@@ -46,6 +51,7 @@ class Item
     public function __construct()
     {
         $this->zones = new ArrayCollection();
+        $this->audits = new ArrayCollection();
     }
 
     public function getId()
@@ -110,6 +116,37 @@ class Item
     {
         if ($this->zones->contains($zone)) {
             $this->zones->removeElement($zone);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AuditItem[]
+     */
+    public function getAudits(): Collection
+    {
+        return $this->audits;
+    }
+
+    public function addAudit(AuditItem $audit): self
+    {
+        if (!$this->audits->contains($audit)) {
+            $this->audits[] = $audit;
+            $audit->setItem($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAudit(AuditItem $audit): self
+    {
+        if ($this->audits->contains($audit)) {
+            $this->audits->removeElement($audit);
+            // set the owning side to null (unless already changed)
+            if ($audit->getItem() === $this) {
+                $audit->setItem(null);
+            }
         }
 
         return $this;
